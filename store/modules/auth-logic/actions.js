@@ -98,11 +98,12 @@ export default {
   },
 
   storeUser({ commit, state }, userData) {
+    const userId = state.userId
     if (!state.idToken) {
       return
     }
     axios.post(
-      'https://bi-nuxt.firebaseio.com/users.json' + '?auth=' + state.idToken,
+      'https://bi-nuxt.firebaseio.com/users/'+ userId + '.json' + '?auth=' + state.idToken,
       userData
     )
     // .then(res => console.dir(res))
@@ -110,21 +111,22 @@ export default {
   },
 
   fetchUser({ commit, state }) {
+    const userId = state.userId
     if (!state.idToken) {
       return
     }
     axios
       .get(
-        // 'https://bi-nuxt.firebaseio.com/users.json' + '?auth=' + state.idToken
-        'https://bi-nuxt.firebaseio.com/rest/saving-data/users.json?auth=' + state.idToken
+        'https://bi-nuxt.firebaseio.com/users/'+ userId + '.json' + '?auth=' + state.idToken
+        // 'https://bi-nuxt.firebaseio.com/rest/saving-data/users.json?auth=' + state.idToken
       )
       .then(res => {
         const data = res.data
-        const userId = state.userId
+        
         console.log(data)
         console.log(userId)
         
-        // commit('storeUser', user.userId)
+        commit('storeUser', data.userId)
       })
     // .catch(error => console.log(error))
   }
