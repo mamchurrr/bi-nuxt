@@ -1,0 +1,124 @@
+.header-top
+    border-bottom: 1px solid #3c10ce
+    &__wraper
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__items
+        display: flex
+        margin: 0
+        padding: 0
+    &__link
+        line-height: 40px
+        color: gray
+        display: block
+        padding: 0 0 0 20px
+        &_padding
+            padding: 0
+
+.header-center
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.nav
+    background: linear-gradient(to left, #7821f2, #3c10ce)
+    &__wraper
+        display: flex
+        justify-content: space-between
+    li
+        display: block
+        width: 100%      
+        a 
+            display: block
+            padding: 20px
+            font-weight: bold
+            color: #fff            
+            margin: 0 1px
+            &.router-link-active
+                background-color: #7900f2
+        
+
+.dropdown-my
+    z-index: 1
+    position: relative
+    display: flex
+    justify-content: space-between
+    &:hover
+        .my-dropdown-content
+            opacity: 1
+            right: 0px
+            visibility: visible
+            margin-top: 0
+            -moz-transform: scaleY(1) //* Для Firefox */
+            -ms-transform: scaleY(1) //* Для IE */
+            -webkit-transform: scaleY(1) //* Для Safari, Chrome, iOS */
+            -o-transform: scaleY(1) //* Для Opera */
+            transform: scaleY(1)
+    &__item
+        margin-bottom: 8px
+        &:last-child
+            margin-bottom: 0
+    &__button
+        height: 2em
+        width: 100%
+        font-size: 16px
+        line-height: 16px
+        background-color: #fff
+        border: 1px solid #be96f2
+        color: #be96f2
+        &:hover
+            color: #fff
+            background-color: #be96f2
+
+.my-dropdown-content
+    position: absolute
+    width: 250px
+    padding: 10px 0
+    opacity: 0
+    right: -50px
+    top: 100%
+    visibility: hidden
+    margin-top: 30px
+    -moz-transform: scaleY(0) //* Для Firefox */
+    -ms-transform: scaleY(0) //* Для IE */
+    -webkit-transform: scaleY(0) //* Для Safari, Chrome, iOS */
+    -o-transform: scaleY(0) //* Для Opera */
+    transform: scaleY(0)
+    transition: transform .6s, margin-top .2s, opacity .4s, right .4s    
+
+#logo
+    img
+        width: 60px
+        height: 60px
+        margin: 15px 0
+
+#cart
+    font-size: 20px
+    color: #a1a1a1
+    display: flex
+    align-items: center
+    .fa-icon
+        margin-left: 20px
+        width: auto
+        height: 1em //or any other relative font sizes
+        //You would have to include the following two lines to make this work in Safari
+        max-width: 100%
+        max-height: 100%
+    
+#search 
+    max-width: 435px
+    width: 100%
+    height: 35px
+    position: relative
+    margin: 0 15px
+    input 
+        width: 100%
+        height: 100%
+        border: 1px solid #e1e1e1
+        border-radius: 15px
+        box-shadow: none
+        padding: 5px 10px
+        font-size: 20px
+        &:focus 
+            box-shadow: inset 0 0 3px 1px #0000002b
